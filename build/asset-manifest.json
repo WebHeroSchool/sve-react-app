@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/static/css/main.cc5be16e.chunk.css",
+    "main.js": "/static/js/main.66f2deba.chunk.js",
+    "main.js.map": "/static/js/main.66f2deba.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.fb634b63.js",
+    "runtime-main.js.map": "/static/js/runtime-main.fb634b63.js.map",
+    "static/js/2.7002a4a5.chunk.js": "/static/js/2.7002a4a5.chunk.js",
+    "static/js/2.7002a4a5.chunk.js.map": "/static/js/2.7002a4a5.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.85a30226135b73c172166a6aae3efc31.js": "/precache-manifest.85a30226135b73c172166a6aae3efc31.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.cc5be16e.chunk.css.map": "/static/css/main.cc5be16e.chunk.css.map",
+    "static/js/2.7002a4a5.chunk.js.LICENSE.txt": "/static/js/2.7002a4a5.chunk.js.LICENSE.txt",
+    "static/media/button.svg": "/static/media/button.2cb86fca.svg",
+    "static/media/facebook.svg": "/static/media/facebook.ed09d0dd.svg",
+    "static/media/github.svg": "/static/media/github.f9f45406.svg",
+    "static/media/mail.svg": "/static/media/mail.9262307f.svg",
+    "static/media/Repos.module.css": "/static/media/union.00873795.svg",
+    "static/media/telegram.svg": "/static/media/telegram.8ea80a8c.svg",
+    "static/media/ItemList.module.css": "/static/media/todo-nullItem.c31353ce.svg",
+    "static/media/vk.svg": "/static/media/vk.8cd6dc13.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.fb634b63.js",
+    "static/js/2.7002a4a5.chunk.js",
+    "static/css/main.cc5be16e.chunk.css",
+    "static/js/main.66f2deba.chunk.js"
+  ]
+}
