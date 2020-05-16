@@ -25,4 +25,7 @@
     .ItemListWrap {
         height: 250px;
     }
+    .ItemListWrapEmpty {
+        background-size: 100%;
+    }
 }

@@ -39,7 +39,6 @@ class Todo extends React.Component {
         );
     };
 
-    /*функция для отметки задачи, как сделанной*/
     onClickDone = id => {
         const newItemList = this.state.tasks.map(item => {
             const newItem = {...item};
@@ -51,7 +50,6 @@ class Todo extends React.Component {
         this.setState({ tasks: newItemList });
     };
 
-    /*функция для отметки важной задачи*/
     onClickImportant = id => {
         const newItemList = this.state.tasks.map(item => {
             const newItem = {...item};
@@ -63,8 +61,6 @@ class Todo extends React.Component {
         this.setState({ tasks: newItemList });
     };
 
-    /*функция для удаления задачи*/
-
     onClickDelete = id => {
         const newItemList = this.state.tasks.filter(item => {
             return item.id !== id
@@ -73,9 +69,6 @@ class Todo extends React.Component {
         this.setState({ tasks: newItemList });
         this.setState((count) => count - 1);
     };
-
-    /*функция для добавляения новой задачи и изменении числа в списке
-      задач*/
 
     onClickAdd = value => {
         const item = this.state.tasks.filter(item => item.value === value);

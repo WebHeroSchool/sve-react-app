@@ -37,17 +37,16 @@
 .repository {
   height: 54px;
   margin: 0 32px 8px 32px;
-
   border: 1px solid #CCC;
   box-sizing: border-box;
   border-radius: 10px;
-
 }
 
 .about-repository-wrapper {
   height: 100%;
   display: flex;
   flex-direction: column;
+  padding: 0 0 0 10px;
   justify-content: space-around;
 }
 
@@ -63,12 +62,13 @@
 }
 
 .info-about-repo {
-  width: 60%;
   display: flex;
-  justify-content: space-around;
+  align-items: center;
+  font-size: 12px;
 }
 
 .info_about-repo__language-icon {
+  width: 77px;
   display: flex;
   align-items: flex-end;
 }
@@ -113,7 +113,6 @@
 .info-about-repo__language {
   font-style: normal;
   font-weight: normal;
-  font-size: 12px;
   line-height: 14px;
 
   color: #999;
@@ -122,21 +121,18 @@
 
 .info-about-repo__star {
   font-weight: normal;
-  font-size: 12px;
-
   color: #999999;
-  background: url('./img/star.svg') left center no-repeat;
 
+  background: url(/static/media/star.a3b344a2.svg) left center no-repeat;
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  width: 44px;
+  width: 50px;
   height: 100%;
 }
 
 .info-about-repo__forks {
   font-weight: normal;
-  font-size: 12px;
 
   color: #999;
   background: url('./img/union.svg') left center no-repeat;
@@ -150,7 +146,6 @@
 
 .info-about-repo__update {
   font-weight: normal;
-  font-size: 12px;
   line-height: 14px;
 
   color: #999;
@@ -189,31 +184,29 @@
   border: 1.2px solid #356EFF;
 }
 
+@media (max-width: 350px) {
+  .info-about-repo__language {
+    font-size: 9px;
+  }
+}
+
 @media (max-width: 450px) {
+  .info-about-repo {
+    font-size: 10px;
+  }
+  .info-about-repo__html-icon,
+  .info-about-repo__css-icon,
+  .info-about-repo__javascript-icon,
   .info-about-repo__null-icon {
     height: 12px;
     width: 12px;
   }
-  .info-about-repo__html-icon {
-    height: 12px;
-    width: 12px;
-  }
-  .info-about-repo__css-icon {
-    height: 12px;
-    width: 12px;
-  }
-  .info-about-repo__javascript-icon {
-    height: 12px;
-    width: 12px;
-  }
-  .info-about-repo__star,
-  .info-about-repo__forks,
-  .info-about-repo__language,
-  .info-about-repo__update{
-    font-size: 10px;
+  .info-about-repo__star {
+    align-items: center;
   }
   .info_about-repo__language-icon {
     align-items: flex-start;
+    width: 67px;
   }
   .repository {
     margin: 0 12px 8px 12px;
