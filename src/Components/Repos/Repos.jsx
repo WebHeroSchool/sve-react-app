@@ -5,6 +5,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import Octokit from '@octokit/rest';
 
 const  octokit = new  Octokit();
+const string = 'ghbdnt';
 
 class Repos extends React.Component {
   state = {
@@ -65,7 +66,7 @@ class Repos extends React.Component {
                       <div className={styles.repositories}>
 
 
-                        {repoList.length < 4 ? /*условие, ЕСЛИ в списке репозиториев их меньше 4, то:*/
+                        {repoList.length < 4 ?
                         <div className={styles.repository__list}>
                               {
                                 repoList.map(repo => (
@@ -84,7 +85,7 @@ class Repos extends React.Component {
 
                                             <div className={styles['info_about-repo__language-icon']}>
                                               <div className={styles[`info-about-repo__${repo.language}-icon`.toLowerCase()]}></div>
-                                              <p className={styles['info-about-repo__language']}>{repo.language}</p>
+                                              <p className={styles['info-about-repo__language']}>repo.language</p>
                                             </div>
                                             <p className={styles['info-about-repo__star']}>{repo.stargazers_count}</p>
                                             <p className={styles['info-about-repo__forks']}>{repo.forks}</p>
@@ -98,7 +99,7 @@ class Repos extends React.Component {
                                       </div>
                                     </ul>
                                 ))
-                              } </div> : /*условие, ЕСЛИ в списке репозиториев больше, то: */
+                              } </div> :
                             <div className={styles.repo__button}>
                             <div className={styles.repository__list}>
                               {
@@ -150,12 +151,8 @@ class Repos extends React.Component {
                                   Далее
                                 </button>
                               </div>
-                              {/*ниже - див, закрывающий стиль 'repoWithButton'*/}
                             </div>
-
-
                           }
-
                       </div>
                   }
                 </div>

@@ -36,6 +36,7 @@
     .button {
         font-size: 12px;
         margin-top: 8px;
+        margin-right: 8px;
         padding: 0 8px 0 0;
     }
     .selected {
