@@ -1,0 +1,52 @@
+.calcTasksWrapper {
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.button {
+    background: none;
+    outline: none;
+    border: none;
+    padding: 3px 8px;
+    cursor: pointer;
+}
+
+
+.button:hover {
+    cursor: pointer;
+    opacity: .4;
+}
+
+.tasksCount {
+    margin-left: 5px;
+}
+
+.selected {
+    background: #356EFF;
+    color: #fff;
+    border-radius: 23px;
+}
+
+.selected:hover {
+    opacity: .4;
+}
+
+@media (max-width: 625px) {
+    .button {
+        font-size: 12px;
+        margin-top: 8px;
+        padding: 0 8px 0 0;
+    }
+    .selected {
+        padding: 3px 8px;
+    }
+    .todoHeaderTitle {
+        font-size: 24px;
+    }
+    .calcTasksWrapper {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+    }
+}

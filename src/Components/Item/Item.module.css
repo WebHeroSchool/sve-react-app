@@ -1,0 +1,89 @@
+.wrapper {
+    width: 95%;
+    border: 2px solid #CCCCCC;
+    box-sizing: border-box;
+    border-radius: 41px;
+    margin: 8px 0;
+    padding: 0 8px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: move;
+
+    /*transition-duration: 2s;*/
+    /*transition-timing-function: linear;*/
+}
+
+.wrapper__text {
+    display: flex;
+    align-items: center;
+}
+
+.wrapper__icon,
+.wrapper__icon {
+    display: flex;
+    align-items: center;
+}
+
+.item {
+    color: #000000;
+}
+
+
+.done {
+    text-decoration-line: line-through;
+    color: #CCC;
+}
+
+.deleteIcon {
+    cursor: pointer;
+    color: #CCC;
+    outline: none;
+}
+
+.wrapper:hover .deleteIcon {
+    color: darkgrey;
+}
+
+.importantIcon {
+    padding-right: 10px;
+    cursor: pointer;
+    color: #CCC;
+}
+
+.isImportant {
+    color: #FFCE73;
+    border-color: #FFCE73;
+}
+
+.wrapper:hover .importantIcon {
+    color: #FFA500;
+}
+
+.importantIcon:active {
+    color: orangered;
+}
+
+@media (max-width: 625px) {
+    .wrapper {
+        padding: 2px 8px;
+    }
+    .item {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 450px) {
+    .item {
+        font-size: 12px;
+    }
+    .MuiSvgIcon-root {
+        font-size: 2rem;
+    }
+    .MuiSvgIcon-fontSizeLarge {
+        font-size: 2rem;
+    }
+}
+
+

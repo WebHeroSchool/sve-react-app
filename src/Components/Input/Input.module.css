@@ -1,0 +1,85 @@
+.inputWrap {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    margin-top: 10px;
+    width: 100%;
+    position: relative;
+}
+
+.input {
+    width: 100%;
+    height: 35px;
+    outline: none;
+    border: 1px solid #CCCCCC;
+    box-sizing: border-box;
+    border-radius: 29px;
+    margin: 8px 0;
+
+    padding-left: 12px;
+    color: #000;
+
+    margin-right: 8px;
+}
+
+.inputError::before {
+    content: 'Упс! Кажется, вы забыли ввести дело';
+    color: #fff;
+    font-size: 14px;
+    padding: 10px;
+
+    width: 190px;
+    top: -60px;
+    left: 20px;
+
+    background: #356EFF;
+    border-radius: 6px;
+
+    position: absolute;
+}
+
+.inputError::after  {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50px;
+    margin-left: -20px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: #356EFF transparent transparent transparent;
+}
+
+.inputRepeat::before {
+    content: 'Ого, у вас уже есть такое дело! Внесите разнообразия:';
+    color: #fff;
+    font-size: 14px;
+    padding: 10px;
+
+    width: 190px;
+    top: -75px;
+    left: 20px;
+    background: #356EFF;
+
+    border-radius: 6px;
+    position: absolute;
+}
+
+.inputRepeat::after  {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50px;
+    margin-left: -20px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: #356EFF transparent transparent transparent;
+}
+
+
+.inputButton {
+    border: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+}
