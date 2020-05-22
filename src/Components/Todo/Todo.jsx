@@ -1,12 +1,11 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Card from '@material-ui/core/Card';
 import ItemList from '../ItemList/ItemList';
 import Input from "../Input/Input";
 import CalcTodo from "../CalcTodo/CalcTodo";
 import styles from './Todo.module.css';
 import update from 'immutability-helper';
-import { DndProvider } from 'react-dnd'
-import Backend from 'react-dnd-html5-backend'
+import { DragDropContext } from "react-beautiful-dnd";
 
 const buttonTasksName = {
     completed: 'Завершенные',
@@ -25,19 +24,34 @@ class Todo extends React.Component {
         classNameForInputRepeat: false,
     };
 
-    moveCard = (dragIndex, hoverIndex) => {
-        const dragCard = this.state.tasks[dragIndex];
-        this.setState(
-            update(this.state, {
-                tasks: {
-                    $splice: [
-                        [dragIndex, 1],
-                        [hoverIndex, 0, dragCard],
-                    ],
-                }
-            })
-        );
-    };
+    // onDragEnd = result => {
+    //     const {source, destination, draggableId} = result;
+    //     if (!destination) return;
+    //
+    //     this.setState(
+    //         update(this.state, {
+    //             tasks: {
+    //                 $splice: [
+    //                     [source.index, 1],
+    //                     [destination.index, 0, draggableId],
+    //                 ],
+    //             }
+    //         })
+    //     );
+    // };
+
+    onDragEnd = result => {
+        const { source, destination } = result;
+        if (!destination) return;
+
+        const newTodoItems = this.state.tasks;
+
+        const [removed] = this.setState.splice(source.index, 1);
+        this.setState.splice(destination.index, 0, removed)
+        this.setState([
+            ...newTodoItems
+        ])
+    }
 
     onClickDone = id => {
         const newItemList = this.state.tasks.map(item => {
@@ -112,7 +126,7 @@ class Todo extends React.Component {
 
         return (
             <Card className={styles.container}>
-                <DndProvider backend={Backend}>
+                <DragDropContext onDragEnd={this.onDragEnd}>
                     <div>
                         <div className={styles.todoHeader}>
                             <h1 className={styles.todoHeaderTitle}>Список моих дел</h1>
@@ -127,14 +141,13 @@ class Todo extends React.Component {
                             filteredValue={this.state.filtered}
                             onClickDone={this.onClickDone}
                             onClickImportant={this.onClickImportant}
-                            onClickDelete={this.onClickDelete}
-                            moveCard={this.moveCard} />
+                            onClickDelete={this.onClickDelete}/>
                         <Input items={this.state.tasks}
                                classNameForInputRepeat={this.state.classNameForInputRepeat}
                                onClickAdd={this.onClickAdd}
                         />
                     </div>
-                </DndProvider>
+                </DragDropContext>
             </Card>
         )}
 };
