@@ -5,7 +5,6 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import Octokit from '@octokit/rest';
 
 const  octokit = new  Octokit();
-const string = 'ghbdnt';
 
 class Repos extends React.Component {
   state = {

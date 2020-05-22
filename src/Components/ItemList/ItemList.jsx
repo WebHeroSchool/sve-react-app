@@ -16,7 +16,7 @@ const ItemList = ({ filtered, onClickDone, onClickDelete, onClickImportant}) => 
                                       {...provided.droppableProps}
                                       className={styles.ItemListWrap}>
                     {filtered.map((task, index) =>
-                        <Draggable draggableId={'task' + task.id} index={index} key={task.id} >
+                        <Draggable draggableId={'task' + task.id} index={index} key={task.id}>
                             {(provided) => (
                                 <Item
                                     value={task.value}

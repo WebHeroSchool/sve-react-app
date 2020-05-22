@@ -24,22 +24,6 @@ class Todo extends React.Component {
         classNameForInputRepeat: false,
     };
 
-    // onDragEnd = result => {
-    //     const {source, destination, draggableId} = result;
-    //     if (!destination) return;
-    //
-    //     this.setState(
-    //         update(this.state, {
-    //             tasks: {
-    //                 $splice: [
-    //                     [source.index, 1],
-    //                     [destination.index, 0, draggableId],
-    //                 ],
-    //             }
-    //         })
-    //     );
-    // };
-
     onDragEnd = result => {
         const { source, destination } = result;
         if (!destination) return;
@@ -141,7 +125,8 @@ class Todo extends React.Component {
                             filteredValue={this.state.filtered}
                             onClickDone={this.onClickDone}
                             onClickImportant={this.onClickImportant}
-                            onClickDelete={this.onClickDelete}/>
+                            onClickDelete={this.onClickDelete} />
+
                         <Input items={this.state.tasks}
                                classNameForInputRepeat={this.state.classNameForInputRepeat}
                                onClickAdd={this.onClickAdd}
