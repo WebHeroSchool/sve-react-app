@@ -19,5 +19,5 @@
  - **immutability-helper**
  
  ## При форке:
- - **npm i**
- -**npm start** or **npm run** for Mac Os
+ - **`npm i`**
+ - **`npm start` or `npm run` for Mac Os**
