@@ -12,5 +12,5 @@
  - **classnames**
  - **react-router-dom**
  - **Material UI**
- - **React-dnd (drag-and-drop)**
+ - **React-beautiful-dnd (drag-and-drop)**
  - **immutability-helper**

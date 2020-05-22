@@ -51,7 +51,6 @@ html {
 
 .header {
   font-family: "Roboto", sans-serif;
-
   width: 100%;
   height: 100%;
   display: flex;
@@ -124,19 +123,19 @@ html {
   }
 }
 
-.header__about-me {
+.header__about-me,
+.header__todos{
   border: 2px solid #356EFF;
   background-color: #356EFF;
   color: white;
   border-radius: 37px;
-
+  transition: .2s;
 }
 
-.header__todos {
-  border: 2px solid #356EFF;
-  background-color: #356EFF;
-  color: white;
-  border-radius: 37px;
+.header__about-me:hover,
+.header__todos:hover {
+  opacity: .7;
+  transition: .2s;
 }
 
 .content {
