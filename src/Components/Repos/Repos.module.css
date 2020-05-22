@@ -123,7 +123,7 @@
   font-weight: normal;
   color: #999999;
 
-  background: url(/static/media/star.a3b344a2.svg) left center no-repeat;
+  background: url(./img/star.svg) left center no-repeat;
   display: flex;
   align-items: flex-end;
   justify-content: center;
