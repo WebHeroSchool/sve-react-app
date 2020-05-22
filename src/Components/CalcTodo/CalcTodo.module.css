@@ -10,12 +10,14 @@
     border: none;
     padding: 3px 8px;
     cursor: pointer;
+    transition: .2s;
 }
 
 
 .button:hover {
     cursor: pointer;
-    opacity: .4;
+    opacity: .7;
+    transition: .2s;
 }
 
 .tasksCount {
@@ -29,7 +31,8 @@
 }
 
 .selected:hover {
-    opacity: .4;
+    opacity: .7;
+    transition: .2s;
 }
 
 @media (max-width: 625px) {

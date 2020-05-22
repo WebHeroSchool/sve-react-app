@@ -1,18 +1,19 @@
 .wrapper {
     width: 95%;
+    background-color: #fff;
     border: 2px solid #CCCCCC;
     box-sizing: border-box;
     border-radius: 41px;
+
     margin: 8px 0;
     padding: 0 8px;
 
     display: flex;
     justify-content: space-between;
     align-items: center;
-    cursor: move;
 
-    /*transition-duration: 2s;*/
-    /*transition-timing-function: linear;*/
+    cursor: move;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.15), 0 5px 5px rgba(0,0,0,0.10);
 }
 
 .wrapper__text {
@@ -40,16 +41,19 @@
     cursor: pointer;
     color: #CCC;
     outline: none;
+    transition: .5s;
 }
 
 .wrapper:hover .deleteIcon {
     color: darkgrey;
+    transition: .5s;
 }
 
 .importantIcon {
     padding-right: 10px;
     cursor: pointer;
     color: #CCC;
+    transition: .5s;
 }
 
 .isImportant {
@@ -59,6 +63,7 @@
 
 .wrapper:hover .importantIcon {
     color: #FFA500;
+    transition: .5s;
 }
 
 .importantIcon:active {

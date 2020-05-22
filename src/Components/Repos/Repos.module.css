@@ -184,6 +184,17 @@
   border: 1.2px solid #356EFF;
 }
 
+.disabled {
+  opacity: .6;
+}
+
+.disabled:hover {
+  background: none;
+  border: 1.2px solid #CCC;
+  color: #356EFF;
+  cursor: default;
+}
+
 @media (max-width: 350px) {
   .info-about-repo__language {
     font-size: 9px;

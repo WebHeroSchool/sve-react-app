@@ -30,12 +30,12 @@ class Todo extends React.Component {
 
         const newTodoItems = this.state.tasks;
 
-        const [removed] = this.setState.splice(source.index, 1);
-        this.setState.splice(destination.index, 0, removed)
+        const [removed] = newTodoItems.splice(source.index, 1);
+        newTodoItems.splice(destination.index, 0, removed)
         this.setState([
             ...newTodoItems
         ])
-    }
+    };
 
     onClickDone = id => {
         const newItemList = this.state.tasks.map(item => {

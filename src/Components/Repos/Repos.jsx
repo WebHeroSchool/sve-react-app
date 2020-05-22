@@ -1,4 +1,5 @@
 import React from 'react';
+import classnames from 'classnames';
 import styles from './Repos.module.css';
 import Card from '@material-ui/core/Card';
 import CircularProgress from "@material-ui/core/CircularProgress";
@@ -13,7 +14,7 @@ class Repos extends React.Component {
     errorText: '',
     repoList: [],
     firstRepo: 0,
-    lastRepo: 5
+    lastRepo: 5,
   };
 
   componentDidMount() {
@@ -34,26 +35,23 @@ class Repos extends React.Component {
 
   };
 
-
   onClickNext = () => {
     this.setState({
       firstRepo: this.state.firstRepo + 4,
-      lastRepo: this.state.lastRepo + 4
+      lastRepo: this.state.lastRepo + 4,
     });
   };
 
   onClickBack = () => {
     this.setState({
       firstRepo: this.state.firstRepo - 4,
-      lastRepo: this.state.lastRepo - 4
+      lastRepo: this.state.lastRepo - 4,
     });
   };
 
   render() {
-    const { isLoading, isError, errorText, repoList,
-      onClickBack, onClickNext, firstRepo, lastRepo } = this.state;
+    const { isLoading, isError, errorText, repoList, firstRepo, lastRepo } = this.state;
     return (
-
         <Card className={ styles.wrap }>
             { isLoading ? <CircularProgress className={styles.preloader}/> :
                 <div className={styles.wrap__repos}>
@@ -76,12 +74,10 @@ class Repos extends React.Component {
                                               className={styles['about-repository-link']}
                                               href={repo.svn_url}
                                               rel='noopener noreferrer'
-                                              target='_blank'
-                                          >
+                                              target='_blank'>
                                             {repo.name}
                                           </a>
                                           <div className={styles['info-about-repo']}>
-
                                             <div className={styles['info_about-repo__language-icon']}>
                                               <div className={styles[`info-about-repo__${repo.language}-icon`.toLowerCase()]}></div>
                                               <p className={styles['info-about-repo__language']}>repo.language</p>
@@ -136,17 +132,18 @@ class Repos extends React.Component {
                             </div>
                               <div className={styles.buttons_wrap}>
                                 <button
-                                    className={styles.button}
+                                    className={classnames({
+                                      [styles.button] : true,
+                                      [styles.disabled]: firstRepo === 0
+                                    })}
                                     onClick={()=>this.onClickBack()}
-                                    disabled={firstRepo < 3}
-                                >
+                                    disabled={firstRepo === 0}>
                                   Назад
                                 </button>
-                                <button
-                                    className={styles.button}
-                                    onClick={()=>this.onClickNext()}
-                                    disabled={repoList.length - lastRepo <= 0}
-                                >
+                                <button className={classnames({[styles.button] : true,
+                                        [styles.disabled]: repoList.length - lastRepo <= 0 })}
+                                        onClick={()=>this.onClickNext()}
+                                        disabled={repoList.length - lastRepo <= 0} >
                                   Далее
                                 </button>
                               </div>
