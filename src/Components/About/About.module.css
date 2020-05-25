@@ -7,6 +7,14 @@
   min-width: 700px;
   height: 200px;
   display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content__user_wrap {
+  height: 100%;
+  width: 100%;
+  display: flex;
   justify-content: space-between;
 }
 
@@ -37,6 +45,19 @@
   display: flex;
   flex-direction: column;
 }
+
+.desc__mail,
+.desc__tg,
+.contacts__link {
+  transition: .2s;
+}
+
+.desc__mail:hover,
+.desc__tg:hover,
+.contacts__link:hover {
+  opacity: .8;
+}
+
 
 .desc__login {
   font-weight: bold;

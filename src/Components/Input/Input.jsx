@@ -22,7 +22,12 @@ class Input extends React.Component {
                 this.setState({
                     inputError: true,
                 });
-        
+
+                setTimeout(() => {
+                    this.setState({
+                        inputError: false
+                    });
+                }, 1500);
             } else {
                 this.setState({
                 inputValue: '',
