@@ -56,27 +56,20 @@ class Repos extends React.Component {
             { isLoading ? <CircularProgress className={styles.preloader}/> :
                 <div className={styles.wrap__repos}>
                   <h1 className={styles.wrap__title}>Репозитории на github.com</h1>
-                  {isError ?
-                      <div className={styles.error}>
-                        <p className={styles.error__text}>{errorText}</p>
-                      </div> :
-                      <div className={styles.repositories}>
-
-
-                        {repoList.length < 4 ?
-                        <div className={styles.repository__list}>
-                              {
-                                repoList.map(repo => (
+                    { isError ?
+                        <div className={styles.error}>
+                          <p className={styles.error__text}>{errorText}</p>
+                        </div> : <div className={styles.repositories}>
+                          { repoList.length < 4 ? <div className={styles.repository__list}>
+                              { repoList.map(repo => (
                                     <ul key={repo.id}>
                                       <div className={styles.repository}>
                                         <div className={styles['about-repository-wrapper']}>
-                                          <a
-                                              className={styles['about-repository-link']}
+                                          <a className={styles['about-repository-link']}
                                               href={repo.svn_url}
                                               rel='noopener noreferrer'
                                               target='_blank'>
-                                            {repo.name}
-                                          </a>
+                                            { repo.name } </a>
                                           <div className={styles['info-about-repo']}>
                                             <div className={styles['info_about-repo__language-icon']}>
                                               <div className={styles[`info-about-repo__${repo.language}-icon`.toLowerCase()]}></div>
@@ -94,24 +87,21 @@ class Repos extends React.Component {
                                       </div>
                                     </ul>
                                 ))
-                              } </div> :
+                              }
+                            </div> :
                             <div className={styles.repo__button}>
                             <div className={styles.repository__list}>
-                              {
-                                repoList.slice(firstRepo, lastRepo).map(repo => (
+                              { repoList.slice(firstRepo, lastRepo).map(repo => (
                                     <ul key={repo.id}>
                                       <div className={styles.repository}>
                                         <div className={styles['about-repository-wrapper']}>
-                                          <a
-                                              className={styles['about-repository-link']}
+                                          <a className={styles['about-repository-link']}
                                               href={repo.svn_url}
                                               rel='noopener noreferrer'
-                                              target='_blank'
-                                          >
+                                              target='_blank' >
                                             {repo.name}
                                           </a>
                                           <div className={styles['info-about-repo']}>
-
                                             <div className={styles['info_about-repo__language-icon']}>
                                               <div className={styles[`info-about-repo__${repo.language}-icon`.toLowerCase()]}></div>
                                               <p className={styles['info-about-repo__language']}>{repo.language}</p>
@@ -131,8 +121,7 @@ class Repos extends React.Component {
                               }
                             </div>
                               <div className={styles.buttons_wrap}>
-                                <button
-                                    className={classnames({
+                                <button className={classnames({
                                       [styles.button] : true,
                                       [styles.disabled]: firstRepo === 0
                                     })}

@@ -46,6 +46,19 @@
   flex-direction: column;
 }
 
+.desc__mail,
+.desc__tg,
+.contacts__link {
+  transition: .2s;
+}
+
+.desc__mail:hover,
+.desc__tg:hover,
+.contacts__link:hover {
+  opacity: .8;
+}
+
+
 .desc__login {
   font-weight: bold;
   font-size: 28px;

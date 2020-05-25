@@ -85,6 +85,11 @@ class Todo extends React.Component {
             }));
         } else {
             this.setState({ classNameForInputRepeat: true });
+            setTimeout(() => {
+                this.setState({
+                    classNameForInputRepeat: false
+                });
+            }, 1500);
         }
     };
 

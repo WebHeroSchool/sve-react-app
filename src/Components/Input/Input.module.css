@@ -81,5 +81,11 @@
     border: none;
     outline: none;
     background: none;
+
     cursor: pointer;
+    transition: .2s;
+}
+
+.inputButton:hover {
+    opacity: .7;
 }
