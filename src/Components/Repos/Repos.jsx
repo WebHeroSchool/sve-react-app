@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import classnames from 'classnames';
 import styles from './Repos.module.css';
 import Card from '@material-ui/core/Card';
@@ -7,8 +7,8 @@ import Octokit from '@octokit/rest';
 
 const  octokit = new  Octokit();
 
-class Repos extends React.Component {
-  state = {
+const Repos = () => {
+  const initialState = {
     isLoading: true,
     isError: false,
     errorText: '',
@@ -17,51 +17,51 @@ class Repos extends React.Component {
     lastRepo: 5,
   };
 
-  componentDidMount() {
+  const [state, setState] = useState(initialState);
+
+  useEffect(() => {
     octokit.repos.listForUser({
       username: 'SveSvet',
-    }).then (({ data }) => {
-      this.setState({
+    }).then(({data}) => {
+      setState({
+        ...state,
         repoList: data,
         isLoading: false,
       });
-    }).catch(() => {
-      this.setState({
-        isLoading: false,
-        isError: true,
-        errorText: 'User is not found',
-      });
-    });
+    }).catch(err => {
+          setState({
+            ...state,
+            isLoading: false,
+            isError: true,
+            errorText: 'User is not found',
+          });
+        });
+  });
 
-  };
-
-  onClickNext = () => {
-    this.setState({
-      firstRepo: this.state.firstRepo + 4,
-      lastRepo: this.state.lastRepo + 4,
-    });
-  };
-
-  onClickBack = () => {
-    this.setState({
-      firstRepo: this.state.firstRepo - 4,
-      lastRepo: this.state.lastRepo - 4,
+  const onClickNext = () => {
+    setState({
+      firstRepo: state.firstRepo + 4,
+      lastRepo: state.lastRepo + 4,
     });
   };
+  const onClickBack = () => {
+    setState({
+      firstRepo: state.firstRepo - 4,
+      lastRepo: state.lastRepo - 4,
+    });
+  };
 
-  render() {
-    const { isLoading, isError, errorText, repoList, firstRepo, lastRepo } = this.state;
     return (
         <Card className={ styles.wrap }>
-            { isLoading ? <CircularProgress className={styles.preloader}/> :
+            { state.isLoading ? <CircularProgress /> :
                 <div className={styles.wrap__repos}>
                   <h1 className={styles.wrap__title}>Репозитории на github.com</h1>
-                    { isError ?
+                    { state.isError ?
                         <div className={styles.error}>
-                          <p className={styles.error__text}>{errorText}</p>
+                          <p className={styles.error__text}>{state.errorText}</p>
                         </div> : <div className={styles.repositories}>
-                          { repoList.length < 4 ? <div className={styles.repository__list}>
-                              { repoList.map(repo => (
+                          { state.repoList.length < 4 ? <div className={styles.repository__list}>
+                              { state.repoList.map(repo => (
                                     <ul key={repo.id}>
                                       <div className={styles.repository}>
                                         <div className={styles['about-repository-wrapper']}>
@@ -91,7 +91,7 @@ class Repos extends React.Component {
                             </div> :
                             <div className={styles.repo__button}>
                             <div className={styles.repository__list}>
-                              { repoList.slice(firstRepo, lastRepo).map(repo => (
+                              { state.repoList.slice(state.firstRepo, state.lastRepo).map(repo => (
                                     <ul key={repo.id}>
                                       <div className={styles.repository}>
                                         <div className={styles['about-repository-wrapper']}>
@@ -123,16 +123,16 @@ class Repos extends React.Component {
                               <div className={styles.buttons_wrap}>
                                 <button className={classnames({
                                       [styles.button] : true,
-                                      [styles.disabled]: firstRepo === 0
+                                      [styles.disabled]: state.firstRepo === 0
                                     })}
-                                    onClick={()=>this.onClickBack()}
-                                    disabled={firstRepo === 0}>
+                                    onClick={ () => onClickBack()}
+                                    disabled={state.firstRepo === 0}>
                                   Назад
                                 </button>
                                 <button className={classnames({[styles.button] : true,
-                                        [styles.disabled]: repoList.length - lastRepo <= 0 })}
-                                        onClick={()=>this.onClickNext()}
-                                        disabled={repoList.length - lastRepo <= 0} >
+                                        [styles.disabled]: state.repoList.length - state.lastRepo <= 0 })}
+                                        onClick={ () => onClickNext()}
+                                        disabled={state.repoList.length - state.lastRepo <= 0} >
                                   Далее
                                 </button>
                               </div>
@@ -145,6 +145,6 @@ class Repos extends React.Component {
         </Card>
     );
   }
-}
+
 
 export default Repos;
