@@ -17,9 +17,8 @@ class Todo extends React.Component {
     maxId = 100;
     state = {
         tasks:  JSON.parse(localStorage.getItem('editedList') ||
-            '[{"value":"Изучить React","isDone":false, "isImportant": true,"id":1},' +
-            '{"value":"Найти работу","isDone":false, "isImportant": true,"id":2}]'),
-        count: 3,
+            '[{"value":"Привет! Я - твой todo-list","isDone":false, "isImportant": false,"id":1}]'),
+        count: 1,
         filtered: buttonTasksName.all,
         classNameForInputRepeat: false,
     };
@@ -86,6 +85,11 @@ class Todo extends React.Component {
             }));
         } else {
             this.setState({ classNameForInputRepeat: true });
+            setTimeout(() => {
+                this.setState({
+                    classNameForInputRepeat: false
+                });
+            }, 1500);
         }
     };
 

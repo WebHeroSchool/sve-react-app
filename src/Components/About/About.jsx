@@ -58,7 +58,7 @@ class About extends React.Component {
                                   <img src={ mail } alt='mail' className={ styles.desk__mail_img }></img>
                                   svetlana.mit.dev@gmail.com
                                 </a>
-                                <a className={ styles.desc__tg } href='tg://resolve?domain=nasariolet'>
+                                <a className={styles.desc__tg} href='tg://resolve?domain=nasariolet'>
                                   <img src={ telegram } alt='telegram' className={ styles.desk__tg_img }></img>
                                   +7 999 828 27 15
                                 </a>
